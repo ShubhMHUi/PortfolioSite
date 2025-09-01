@@ -22,10 +22,12 @@ import Menubar from 'primevue/menubar'
 import Ripple from 'primevue/ripple'
 import VueTypedJs from 'vue3-typed-js'
 import Badge from 'primevue/badge'
+import Tag from 'primevue/tag'
 
 app.component('Button', Button)
 app.component('Menubar', Menubar)
 app.component('Badge', Badge)
+app.component('Tag', Tag)
 
 app.use(VueTypedJs)
 app.directive('ripple', Ripple)

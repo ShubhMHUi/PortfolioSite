@@ -1,32 +1,77 @@
 <template>
   <section>
-    <div class="flex justify-between my-12 items-center pb-12 flex-wrap">
+    <div class="flex justify-between my-8 items-start pb-12 flex-wrap gap-6">
       <div
-        class="flex flex-col justify-center items-center p-4 gap-4 rounded text-white border border-gray-700 max-w-2xs"
+        v-for="(project, index) in projects"
+        :key="index"
+        class="flex flex-col justify-center items-center p-4 gap-6 rounded text-white border border-gray-700 max-w-xs max-h-2xs"
       >
-        <figure class="m-0 w-64 h-40 bg-amber-100 rounded">
-          <img src="" />
+        <!-- Project Image -->
+        <figure class="m-0 w-full h-full bg-amber-100 rounded overflow-hidden">
+          <img :src="project.image" alt="project image" class="w-full h-full object-cover" />
         </figure>
-        <div class="flex flex-col justify-center items-center gap-4">
-          <h5 class="text-xl">Project Title</h5>
-          <div class="flex gap-4">
-            <Badge value="In Progress" severity="info" />
-            <Badge value="In Progress" severity="info" />
+
+        <!-- Project Details -->
+        <div class="flex flex-col justify-center items-center gap-6 text-center">
+          <h5 class="text-xl font-bold">{{ project.title }}</h5>
+          <p class="text-gray-400 text-sm">{{ project.subtitle }}</p>
+
+          <!-- Tags -->
+          <div class="flex gap-2 flex-wrap">
+            <Tag
+              v-for="(tag, idx) in project.tags"
+              :key="idx"
+              :value="tag"
+              :severity="getTagColor(tag)"
+              rounded
+            />
           </div>
-          <p class="text-sm">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus ullam suscipit
-            iusto?
-          </p>
+
+          <!-- Description -->
+          <p class="text-sm">{{ project.description }}</p>
+
+          <!-- Buttons -->
           <div class="flex justify-between gap-3">
-            <Button severity="secondary" label="Visit Github" />
-            <Button label="Live Demo" />
+            <Button
+              v-if="project.github"
+              severity="secondary"
+              :label="'Visit Github'"
+              :href="project.github"
+              target="_blank"
+              outlined
+            />
+            <Button
+              text
+              v-if="project.demo"
+              label="Live Demo"
+              :href="project.demo"
+              target="_blank"
+            />
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+<script setup>
+import { useProfileStore } from '../stores/userProfileStore'
+import { storeToRefs } from 'pinia'
 
-<script setup></script>
+const profileStore = useProfileStore()
+const { projects } = storeToRefs(profileStore)
 
-<style lang="scss" scoped></style>
+const getTagColor = (tag) => {
+  const colorMap = {
+    Python: 'success',
+    Tkinter: 'secondary',
+    MySQL: 'info',
+    AI: 'danger',
+    Web: 'primary',
+    HTML: 'info',
+    CSS: 'secondary',
+    JavaScript: 'warn',
+    Utility: 'danger', // red
+  }
+  return colorMap[tag] || 'info'
+}
+</script>
