@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="flex justify-between my-8 items-start pb-12 flex-wrap gap-6">
+    <div class="flex justify-around my-8 items-start pb-12 flex-wrap gap-6">
       <div
         v-for="(project, index) in projects"
         :key="index"
@@ -13,7 +13,7 @@
 
         <!-- Project Details -->
         <div class="flex flex-col justify-center items-center gap-6 text-center">
-          <h5 class="text-xl font-bold">{{ project.title }}</h5>
+          <h5 class="text-xl font-semibold">{{ project.title }}</h5>
           <p class="text-gray-400 text-sm">{{ project.subtitle }}</p>
 
           <!-- Tags -->
@@ -34,6 +34,7 @@
           <div class="flex justify-between gap-3">
             <Button
               v-if="project.github"
+              as="a"
               severity="secondary"
               :label="'Visit Github'"
               :href="project.github"
@@ -41,8 +42,9 @@
               outlined
             />
             <Button
-              text
               v-if="project.demo"
+              text
+              as="a"
               label="Live Demo"
               :href="project.demo"
               target="_blank"

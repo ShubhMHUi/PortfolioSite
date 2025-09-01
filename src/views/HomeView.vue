@@ -1,5 +1,5 @@
 <template>
-  <section class="flex lg:flex-row gap-4 my-6">
+  <section class="flex flex-col-reverse lg:flex-row gap-6 my-6">
     <div class="flex flex-1/2 justify-center items-center">
       <figure class="h-auto rounded-full overflow-hidden shadow-gray-800">
         <img class="w-100 h-auto object-cover" src="../assets/img/avtar.png" alt="profile image" />
@@ -26,15 +26,8 @@
       </div>
 
       <div class="flex justify-center items-center gap-3">
-        <Button
-          severity="secondary"
-          label="Download Resume"
-          @click="() => window.open(personalInfo.resume, '_blank')"
-        />
-        <Button
-          label="Visit GitHub"
-          @click="() => window.open(personalInfo.social.github, '_blank')"
-        ></Button>
+        <Button severity="secondary" label="Download Resume" @click="downloadResume" />
+        <Button as="a" label="Visit GitHub" @click="openGitHub" />
       </div>
     </div>
   </section>
@@ -49,6 +42,14 @@ const store = useProfileStore()
 const profile = store.personalInfo
 
 const titles = computed(() => store.personalInfo?.titles ?? [])
+
+const downloadResume = () => {
+  window.open(profile.resume, '_blank')
+}
+
+const openGitHub = () => {
+  window.open(profile.social.github, '_blank')
+}
 </script>
 
 <style lang="scss" scoped></style>
