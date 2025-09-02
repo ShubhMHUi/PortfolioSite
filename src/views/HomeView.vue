@@ -2,7 +2,7 @@
   <section class="flex flex-col-reverse lg:flex-row gap-6 my-6">
     <AnimateWrapper>
       <div class="flex flex-1/2 justify-center items-center">
-        <figure class="h-auto rounded-full overflow-hidden shadow-gray-800">
+        <figure class="h-auto rounded-full overflow-hidden drop-shadow-xl drop-shadow-gray-800/50">
           <img
             loading="lazy"
             class="w-100 h-auto object-cover"

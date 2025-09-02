@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-gray-800/80 py-4 px-6 mx-6 mt-4 rounded releative left-0 right-0 bottom-0">
+  <footer class="bg-gray-800/80 py-4 px-6 mx-6 mt-4 rounded relative left-0 right-0 bottom-0">
     <div class="flex items-center justify-center text-center text-shadow-gray-500 text-xs">
       <p class="mx-2">Created with</p>
       <div class="flex items-center gap-3">

@@ -6,13 +6,13 @@
         :key="i"
         class="flex flex-col gap-6 p-4 text-white border-b-1 border-gray-700/50"
       >
-        <h5 class="text-xl font-semibold">{{ category.title }}</h5>
+        <h5 class="text-xl text-center font-semibold lg:text-left">{{ category.title }}</h5>
         <AnimateWrapper name="zoom">
           <div class="flex gap-4 justify-around flex-wrap p-3">
             <div
               v-for="(skill, j) in category.items"
               :key="j"
-              class="flex flex-col justify-center items-center gap-3 w-32 h-32 bg-gray-800/30 rounded-lg"
+              class="flex flex-col justify-center items-center gap-3 w-32 h-32 bg-gray-800/30 rounded-lg drop-shadow-md drop-shadow-gray-500/40"
             >
               <figure class="m-0">
                 <img loading="lazy" class="w-10 h-10" :src="skill.image" :alt="skill.name" />

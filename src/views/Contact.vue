@@ -9,7 +9,7 @@
           v-ripple
           v-for="contact in profile.personalInfo.contacts"
           :key="contact.type"
-          class="flex flex-col justify-center items-center gap-6 p-6 bg-gray-700/30 rounded-lg shadow-md hover:shadow-xl transition w-64"
+          class="flex flex-col justify-center items-center gap-6 p-6 bg-gray-700/30 rounded-lg drop-shadow-md drop-shadow-gray-700/40 transition w-64"
         >
           <figure>
             <img
