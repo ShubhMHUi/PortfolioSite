@@ -4,6 +4,7 @@
       <div class="flex flex-1/2 justify-center items-center">
         <figure class="h-auto rounded-full overflow-hidden shadow-gray-800">
           <img
+            loading="lazy"
             class="w-100 h-auto object-cover"
             src="../assets/img/avtar.png"
             alt="profile image"

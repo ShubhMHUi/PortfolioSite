@@ -12,7 +12,12 @@
           class="flex flex-col justify-center items-center gap-6 p-6 bg-gray-700/30 rounded-lg shadow-md hover:shadow-xl transition w-64"
         >
           <figure>
-            <img class="w-10 h-10" :src="contact.icon" :alt="`${contact.type} Icon`" />
+            <img
+              loading="lazy"
+              class="w-10 h-10"
+              :src="contact.icon"
+              :alt="`${contact.type} Icon`"
+            />
           </figure>
           <p class="text-sm text-center">
             <a

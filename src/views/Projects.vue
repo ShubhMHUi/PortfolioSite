@@ -10,7 +10,12 @@
         >
           <!-- Project Image -->
           <figure class="m-0 w-full bg-amber-100 rounded overflow-hidden h-48">
-            <img :src="project.image" alt="project image" class="w-full object-cover" />
+            <img
+              loading="lazy"
+              :src="project.image"
+              alt="project image"
+              class="w-full object-cover"
+            />
           </figure>
 
           <!-- Project Details -->

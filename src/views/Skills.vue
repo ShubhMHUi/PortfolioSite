@@ -15,7 +15,7 @@
               class="flex flex-col justify-center items-center gap-3 w-32 h-32 bg-gray-800/30 rounded-lg"
             >
               <figure class="m-0">
-                <img class="w-10 h-10" :src="skill.image" :alt="skill.name" />
+                <img loading="lazy" class="w-10 h-10" :src="skill.image" :alt="skill.name" />
               </figure>
               <p>{{ skill.name }}</p>
             </div>
